@@ -291,4 +291,10 @@ run().catch(console.dir);
 
 
 
+app.get('/', (req, res) => {
+  res.send('running')
+})
 
+app.listen(port, () => {
+  console.log(`running port : ${port}`);
+})
