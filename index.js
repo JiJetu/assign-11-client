@@ -258,7 +258,21 @@ async function run() {
     })
 
 
-    
+    //get review data by id from   mdb
+    app.get('/reviews/:id', async (req, res) => {
+      const reviewid = req.params.id;
+      try {
+        const review = await reviewCollection.findOne({ _id: new ObjectId(reviewid) });
+        if (!review) {
+          // If room is not found, return a 404 status
+          return res.status(404).json({ error: 'revie not found' });
+        }
+        res.json(review);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    });
 
 
 
