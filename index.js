@@ -179,7 +179,20 @@ async function run() {
 
 
     //get specific data by id
-    
+    app.get('/bookings/:id', async (req, res) => {
+      const bookingId = req.params.id;
+      try {
+        const bookById = await bookingCollection.findOne({ _id: new ObjectId(bookingId) });
+        if (!bookById) {
+          // If room is not found, return a 404 status
+          return res.status(404).json({ error: 'revie not found' });
+        }
+        res.json(bookById);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    })
 
 
 
