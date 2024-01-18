@@ -142,7 +142,39 @@ async function run() {
 
     //::::: booking data add to server side  :::::
 
-    
+    app.post('/bookings', async (req, res) => {
+      const booking = req.body;
+      console.log(booking);
+      const result = await bookingCollection.insertOne(booking)
+      res.send(result);
+    })
+
+
+    //use jwt
+    //get specific data by 
+
+    app.get('/bookings', logger, verifyToken, async (req, res) => {
+      console.log(req.query);
+
+      // console.log('boookingss cookiee',req.cookies);
+      console.log('userr:::::', req.user);
+
+      // check user is valid or not
+
+      if (req.user.email !== req.query.email) {
+        return res.status(403).send({ message: 'forbidden access' })
+
+      }
+
+
+      let query = {};
+
+      if (req.query?.email) {
+        query = { email: req.query.email };
+      }
+      const result = await bookingCollection.find(query).toArray();
+      res.send(result);
+    })
 
 
 
@@ -178,30 +210,7 @@ async function run() {
 
 
 
-    // Update booking route
-    app.put('/bookings/:id', async (req, res) => {
-
-      const id = req.params.id;
-      console.log(req.params.date);
-      const filter = { _id: new ObjectId(id) };
-      const options = { upsert: true };
-      const updatedDtae = req.body;
-      console.log(updatedDtae);
-      const date = {
-        $set: {
-          date: updatedDtae.date,
-        }
-      };
-
-      await bookingCollection.updateOne(filter, date, options, (err, result) => {
-        if (err) {
-          console.error(err);
-          res.status(500).send('Error updating booking');
-        } else {
-          res.send(result);
-        }
-      });
-    });
+    
 
 
     // ::::::: Review data  ::::::::
