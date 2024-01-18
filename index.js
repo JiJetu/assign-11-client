@@ -46,7 +46,29 @@ const client = new MongoClient(uri, {
 
 //middlewearse
 
+const logger = (req, res, next) => {
+  console.log('logged Info:', req.method, req.url);
+  next()
+}
 
+const verifyToken = (req, res, next) => {
+  const token = req.cookies?.token;
+  console.log('tokken in middlewire:::::::', token);
+
+  // no token 
+  if (!token) {
+    return res.status(401).send({ message: 'unauthorized access' })
+  }
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: 'unauthorized access' })
+    }
+    req.user = decoded;
+    next();
+
+  })
+
+}
 
 
 async function run() {
@@ -93,27 +115,7 @@ async function run() {
 
 
     //get rooms data from   mdb
-    app.get('/rooms', async (req, res) => {
-      const cursor = roomCollection.find();
-      const result = await cursor.toArray();
-      res.send(result);
-
-    })
-    //get rooms data by id from   mdb
-    app.get('/rooms/:id', async (req, res) => {
-      const roomId = req.params.id;
-      try {
-        const room = await roomCollection.findOne({ _id: new ObjectId(roomId) });
-        if (!room) {
-          // If room is not found, return a 404 status
-          return res.status(404).json({ error: 'Room not found' });
-        }
-        res.json(room);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal server error' });
-      }
-    });
+    
 
 
 
