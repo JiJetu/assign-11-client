@@ -115,46 +115,34 @@ async function run() {
 
 
     //get rooms data from   mdb
-    
+    app.get('/rooms', async (req, res) => {
+      const cursor = roomCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+
+    })
+    //get rooms data by id from   mdb
+    app.get('/rooms/:id', async (req, res) => {
+      const roomId = req.params.id;
+      try {
+        const room = await roomCollection.findOne({ _id: new ObjectId(roomId) });
+        if (!room) {
+          // If room is not found, return a 404 status
+          return res.status(404).json({ error: 'Room not found' });
+        }
+        res.json(room);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    });
 
 
 
 
     //::::: booking data add to server side  :::::
 
-    app.post('/bookings', async (req, res) => {
-      const booking = req.body;
-      console.log(booking);
-      const result = await bookingCollection.insertOne(booking)
-      res.send(result);
-    })
-
-
-    //use jwt
-    //get specific data by 
-
-    app.get('/bookings', logger, verifyToken, async (req, res) => {
-      console.log(req.query);
-
-      // console.log('boookingss cookiee',req.cookies);
-      console.log('userr:::::', req.user);
-
-      // check user is valid or not
-
-      if (req.user.email !== req.query.email) {
-        return res.status(403).send({ message: 'forbidden access' })
-
-      }
-
-
-      let query = {};
-
-      if (req.query?.email) {
-        query = { email: req.query.email };
-      }
-      const result = await bookingCollection.find(query).toArray();
-      res.send(result);
-    })
+    
 
 
 
