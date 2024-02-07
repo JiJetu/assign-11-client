@@ -1,0 +1,107 @@
+[
+    {
+      "name": "Luxury Suite",
+      "description": "A spacious suite with a breathtaking view.",
+      "pricePerNight": 250,
+      "size": "400 sq. ft.",
+      "availability": 5,
+      "images": [
+        "https://i.ibb.co/Gs6CPxZ/norbert-levajsics-o-TJ92-KUXHls-unsplash.jpg",
+         "https://i.ibb.co/KzSHRZ0/deborah-cortelazzi-g-REqu-CUXQLI-unsplash.jpg",
+          "image3.jpg"
+        ],
+      "specialOffers": "10% off for a 7-day stay"
+    },
+    {
+      "name": "Deluxe Room",
+      "description": "Cozy and comfortable room with modern amenities.",
+      "pricePerNight": 150,
+      "size": "300 sq. ft.",
+      "availability": 8,
+      "images": [
+        "https://i.ibb.co/KzSHRZ0/deborah-cortelazzi-g-REqu-CUXQLI-unsplash.jpg",
+       "image5.jpg", 
+       "image6.jpg"
+    ],
+      "specialOffers": "5% off for a 5-day stay"
+    },
+    {
+      "name": "Executive Suite",
+      "description": "Spacious suite with a private balcony.",
+      "pricePerNight": 300,
+      "size": "500 sq. ft.",
+      "availability": 3,
+      "images": [
+        "https://i.ibb.co/w7fNDZz/roberto-nickson-r-EJxp-Bskj3-Q-unsplash.jpg", 
+      "image8.jpg",
+       "image9.jpg"
+    ],
+      "specialOffers": "15% off for a 7-day stay"
+    },
+    {
+      "name": "Standard Room",
+      "description": "Simple and comfortable room for a pleasant stay.",
+      "pricePerNight": 100,
+      "size": "250 sq. ft.",
+      "availability": 10,
+      "images": [
+        "https://i.ibb.co/KzSHRZ0/deborah-cortelazzi-g-REqu-CUXQLI-unsplash.jpg",
+       "image11.jpg",
+        "image12.jpg"
+    ],
+      "specialOffers": "No special offers"
+    },
+    {
+      "name": "Family Suite",
+      "description": "Ideal for family getaways with multiple rooms.",
+      "pricePerNight": 350,
+      "size": "700 sq. ft.",
+      "availability": 2,
+      "images": [
+        "https://i.ibb.co/mzV0XCr/manuel-moreno-DGa0-LQ0y-DPc-unsplash.jpg",
+         "image14.jpg", 
+         "image15.jpg"
+        ],
+      "specialOffers": "20% off for a 7-day stay"
+    },
+    {
+      "name": "Ocean View Room",
+      "description": "Enjoy stunning ocean views from this room.",
+      "pricePerNight": 180,
+      "size": "350 sq. ft.",
+      "availability": 6,
+      "images": [
+        "https://i.ibb.co/symNkF8/andriyko-podilnyk-bdmd-X-XMc-V4-unsplash.jpg",
+         "image17.jpg",
+          "image18.jpg"
+        ],
+      "specialOffers": "10% off for a 3-day stay"
+    },
+    {
+      "name": "Honeymoon Suite",
+      "description": "A romantic suite with a private jacuzzi.",
+      "pricePerNight": 400,
+      "size": "600 sq. ft.",
+      "availability": 4,
+      "images": [
+        "https://i.ibb.co/symNkF8/andriyko-podilnyk-bdmd-X-XMc-V4-unsplash.jpg",
+         "image20.jpg",
+          "image21.jpg"
+        ],
+      "specialOffers": "15% off for a 7-day stay"
+    },
+    {
+      "name": "Mountain View Room",
+      "description": "Wake up to breathtaking mountain views.",
+      "pricePerNight": 220,
+      "size": "380 sq. ft.",
+      "availability": 7,
+      "images": [
+        "https://i.ibb.co/bKTvfs9/juairia-islam-shefa-Ar-Fk-KY2-Dv-XA-unsplash.jpg",
+         "image23.jpg",
+          "image24.jpg"
+        ],
+      "specialOffers": "5% off for a 5-day stay"
+    }
+  ]
+  
